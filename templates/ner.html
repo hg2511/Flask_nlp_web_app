@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >Named Entity Recognition(NER)</title>
+</head>
+<body>
+    <h1 style="text-align:center">Named Entity Recognition (NER)</h1>
+    <form style="text-align:center" action="/perform_ner", method="POST">
+        <textarea rows="10" cols="50" placeholder="Enter your text here" name="ner_text"></textarea><br><br>
+        <input type="submit" value="Perform NER" style="text-align:center">
+    </form>
+
+    {% if response %}
+
+        {% for i in response['entities']: %}
+            <p style="text-align:center"> {{ i['name'] + " ==> "  + i['category'] }} </p>
+        {% endfor %}
+
+
+    {% endif %}
+
+</body>
+</html>
